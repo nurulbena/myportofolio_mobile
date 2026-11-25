@@ -134,22 +134,42 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              _field(_company, 'Nama Perusahaan',
-                  validator: (v) => _required(v, 'Nama perusahaan')),
-              _field(_position, 'Posisi',
-                  validator: (v) => _required(v, 'Posisi')),
-              _field(_start, 'Tanggal Mulai',
-                  isDate: true,
-                  validator: (v) => (v == null || v.isEmpty)
-                      ? 'Tanggal mulai wajib dipilih!'
-                      : null),
-              _field(_end, 'Tanggal Selesai',
-                  isDate: true, validator: _validateEnd),
-              _field(_desc, 'Deskripsi',
-                  maxLines: 5,
-                  validator: (v) => _required(v, 'Deskripsi', max: 300)),
-              _field(_link, 'Tautan (opsional)',
-                  keyboard: TextInputType.url, validator: _validateUrl),
+              _field(
+                _company,
+                'Nama Perusahaan',
+                validator: (v) => _required(v, 'Nama perusahaan'),
+              ),
+              _field(
+                _position,
+                'Posisi',
+                validator: (v) => _required(v, 'Posisi'),
+              ),
+              _field(
+                _start,
+                'Tanggal Mulai',
+                isDate: true,
+                validator: (v) => (v == null || v.isEmpty)
+                    ? 'Tanggal mulai wajib dipilih!'
+                    : null,
+              ),
+              _field(
+                _end,
+                'Tanggal Selesai',
+                isDate: true,
+                validator: _validateEnd,
+              ),
+              _field(
+                _desc,
+                'Deskripsi',
+                maxLines: 5,
+                validator: (v) => _required(v, 'Deskripsi', max: 300),
+              ),
+              _field(
+                _link,
+                'Tautan (opsional)',
+                keyboard: TextInputType.url,
+                validator: _validateUrl,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
@@ -157,8 +177,10 @@ class _ExperienceFormPageState extends State<ExperienceFormPage> {
                     backgroundColor: WidgetStateProperty.all(Colors.indigo),
                   ),
                   onPressed: _save,
-                  child: const Text('Simpan',
-                      style: TextStyle(color: Colors.white)),
+                  child: const Text(
+                    'Simpan',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ],
